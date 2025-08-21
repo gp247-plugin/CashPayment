@@ -1,65 +1,32 @@
-# CashPayment Plugin
+### 1. Overview
+Cash payment plugin for GP247/Shop. Suitable for offline cash collection (e.g., cash on delivery). Orders are created successfully and payment is collected outside the system between buyer and seller.
 
-## English
+### 2. Features
+- Adds a "Cash on delivery" payment method to checkout
+- No online transaction handling; orders remain pending until cash is collected
+- Can be enabled/disabled from the admin panel
+- Compatible with core 1.1+; uses the `gp247/shop` package
 
-### Description
-This is a basic Payment plugin for GP247/Shop, designed to handle cash payments where orders are created successfully but payment is handled offline between the buyer and seller.
+### 3. Installation
+You can install the plugin in one of the following ways:
 
-### Features
-- Create orders with cash payment method
-- No online payment processing required
-- Orders are marked as pending payment
-- Flexible configuration through config.php file
+1) Online installation: open the Plugin library in Admin and search for "Cash payment" to install.
+2) Upload ZIP: upload the plugin ZIP package from the Admin panel.
+3) Manual installation: extract and copy to `app/GP247/Plugins/CashPayment`, then open Admin and save local configuration.
 
-### Requirements
-- GP247/Shop must be pre-installed in the system
+Reference (Vietnamese) installation guide: `https://gp247.net/vi/docs/user-guide-extension/guide-to-installing-the-extension.html`
 
-### Installation
-There are 3 ways to install the plugin:
+### 4. Usage
+- In Admin: Plugins → Payment → enable "Cash payment".
+- No additional configuration is required for this method.
+- On the storefront checkout page, buyers select "Cash on delivery".
+- The order will remain pending payment until it is confirmed as paid.
 
-1. **Online Installation**
-   - Access the Plugin library
-   - Find and install the CashPayment plugin
+### 4. Documentation
+- GitHub: `https://github.com/gp247net/CashPayment`
+- Guide (Vietnamese): `https://gp247.net/vi/docs/user-guide-extension/guide-to-installing-the-extension.html`
 
-2. **ZIP File Installation**
-   - Import the plugin zip file
-   - System will automatically install the plugin
+### 5. License
+Developed by GP247
 
-3. **Manual Installation**
-   - Extract the plugin file
-   - Copy all contents to `app/GP247/Plugins/CashPayment` directory
-   - Access the admin page
-   - Go to `Save local` to complete installation
 
----
-
-## Tiếng Việt
-
-### Mô tả
-Đây là Plugin Payment cơ bản dành cho GP247/Shop, được thiết kế để xử lý thanh toán tiền mặt, nơi đơn hàng được tạo thành công nhưng việc thanh toán được thực hiện ngoại tuyến giữa người mua và người bán.
-
-### Tính năng
-- Tạo đơn hàng với phương thức thanh toán tiền mặt
-- Không yêu cầu xử lý thanh toán trực tuyến
-- Đơn hàng được đánh dấu là chờ thanh toán
-- Cấu hình linh hoạt thông qua file config.php
-
-### Yêu cầu
-- GP247/Shop đã được cài đặt sẵn trong hệ thống
-
-### Cách cài đặt
-Có 3 cách để cài đặt plugin:
-
-1. **Cài đặt online**
-   - Truy cập thư viện Plugin
-   - Tìm và cài đặt CashPayment plugin
-
-2. **Cài đặt qua file zip**
-   - Import file zip chứa plugin
-   - Hệ thống sẽ tự động cài đặt
-
-3. **Cài đặt thủ công**
-   - Giải nén file plugin
-   - Copy toàn bộ nội dung vào thư mục `app/GP247/Plugins/CashPayment`
-   - Truy cập trang admin
-   - Vào mục `Save local` để hoàn tất cài đặt
