@@ -60,6 +60,20 @@ class AppConfig extends ExtensionConfigDefault
                 AdminConfig::insert(
                     $dataInsert
                 );
+
+                $defaults = require __DIR__.'/config.php';
+                AdminConfig::insert([
+                    [
+                        'group'    => $this->configKey,
+                        'key'      => 'note',
+                        'code'     => $this->configKey.'_config',
+                        'sort'     => 1,
+                        'store_id' => GP247_STORE_ID_GLOBAL,
+                        'value'    => $defaults['note'] ?? '',
+                        'detail'   => $this->appPath.'::lang.admin.note',
+                    ],
+                ]);
+
                 (new ExtensionModel)->installExtension();
 
 
@@ -101,6 +115,7 @@ class AppConfig extends ExtensionConfigDefault
             (new AdminConfig)
             ->where('key', $this->configKey)
             ->orWhere('code', $this->configKey.'_config')
+            ->orWhere('group', $this->configKey)
             ->delete();
 
             //Admin config home
@@ -169,11 +184,11 @@ class AppConfig extends ExtensionConfigDefault
     }
 
 
-    // Process when click button plugin in admin    
-    
+    // Process when click button plugin in admin
+
     public function clickApp()
     {
-        //
+        return redirect()->route('admin_cashpayment.index');
     }
 
     /**
@@ -183,6 +198,11 @@ class AppConfig extends ExtensionConfigDefault
      */
     public function getInfo()
     {
+        $note = AdminConfig::where('group', $this->configKey)
+            ->where('key', 'note')
+            ->where('store_id', GP247_STORE_ID_GLOBAL)
+            ->value('value') ?? config($this->appPath.'.note') ?? '';
+
         $arrData = [
             'title' => $this->title,
             'key' => $this->configKey,
@@ -192,6 +212,7 @@ class AppConfig extends ExtensionConfigDefault
             'version' => $this->version,
             'auth' => $this->auth,
             'link' => $this->link,
+            'note' => $note,
             'appPath' => $this->appPath
         ];
 
