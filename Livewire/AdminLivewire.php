@@ -31,6 +31,23 @@ class AdminLivewire extends ConfigForm
         parent::mount();
     }
 
+    /**
+     * Opt into per-store scope: on a multi-store/marketplace site the screen shows the
+     * store picker so each store keeps its own COD note, inheriting the shared value until
+     * overridden. The plugin's on/off per store is handled centrally on the "Manage Plugin"
+     * list (US-PLG-per-store-plugin-enable-list), so no enableKey() here. Single-store: no-op.
+     *
+     * @return bool
+     *
+     * @aidlc-unit plugin-cash-payment
+     * @aidlc-story US-cash-payment-per-store-config
+     * @aidlc-adr plugin-cash-payment_per-store-config
+     */
+    protected function storeScoped(): bool
+    {
+        return true;
+    }
+
     protected function group(): string
     {
         return 'CashPayment';

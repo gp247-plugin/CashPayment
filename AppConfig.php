@@ -196,12 +196,46 @@ class AppConfig extends ExtensionConfigDefault
      *
      * @return  [type]  [return description]
      */
+    /**
+     * Resolve a setting for the effective store: the store's own row, falling back to the
+     * GLOBAL row and finally the plugin's file default — the same two-tier store→GLOBAL
+     * inheritance the platform uses, kept group-qualified (group = configKey) so the generic
+     * key "note" never collides with another plugin's. On a single-store site the effective
+     * store is ROOT ⇒ resolves to GLOBAL ⇒ behaviour unchanged.
+     *
+     * @param string $key Setting key (e.g. "note").
+     * @return string The resolved value.
+     *
+     * @aidlc-unit plugin-cash-payment
+     * @aidlc-story US-cash-payment-per-store-config
+     * @aidlc-adr plugin-cash-payment_per-store-config
+     */
+    private function resolveSetting(string $key): string
+    {
+        $storeId = function_exists('gp247_plugin_store_id')
+            ? gp247_plugin_store_id()
+            : GP247_STORE_ID_GLOBAL;
+
+        $value = AdminConfig::where('group', $this->configKey)
+            ->where('key', $key)
+            ->where('store_id', $storeId)
+            ->value('value');
+
+        if ($value === null && (string) $storeId !== (string) GP247_STORE_ID_GLOBAL) {
+            $value = AdminConfig::where('group', $this->configKey)
+                ->where('key', $key)
+                ->where('store_id', GP247_STORE_ID_GLOBAL)
+                ->value('value');
+        }
+
+        return (string) ($value ?? config($this->appPath.'.'.$key) ?? '');
+    }
+
     public function getInfo()
     {
-        $note = AdminConfig::where('group', $this->configKey)
-            ->where('key', 'note')
-            ->where('store_id', GP247_STORE_ID_GLOBAL)
-            ->value('value') ?? config($this->appPath.'.note') ?? '';
+        // Per-store aware (storeScope=store): resolve the COD note for the effective store
+        // (own row → GLOBAL → file default) instead of always reading GLOBAL.
+        $note = $this->resolveSetting('note');
 
         $arrData = [
             'title' => $this->title,
