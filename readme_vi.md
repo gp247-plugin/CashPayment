@@ -16,6 +16,26 @@ Có thể cài đặt theo một trong các cách sau:
 
 Tham khảo hướng dẫn cài đặt extension (tiếng Việt): `https://gp247.net/vi/docs/user-guide-extension/guide-to-installing-the-extension.html`
 
+#### Cài bằng dòng lệnh (CLI, gp247 3.x)
+
+Từ gp247 3.x, bạn có thể tải **CashPayment** từ thư viện GP247 và cài ngay bằng dòng lệnh mà không cần mở admin. Plugin yêu cầu website đã cài gói `gp247/shop`. Mở Terminal tại thư mục gốc website rồi chạy:
+
+```bash
+# 1) Chỉ làm 1 lần cho mỗi website: đăng ký API License (miễn phí) để kết nối thư viện GP247
+php artisan gp247:ext-register-license
+
+# 2) Tải plugin từ thư viện và cài
+php artisan gp247:ext-install --type=plugin --key=CashPayment
+```
+
+- Trước bước 1, kiểm tra `APP_URL` trong `.env` là **domain thật** của website (không để `http://localhost`), vì license được gắn với domain này.
+- Cài xong, plugin được **bật sẵn** và cache tự làm mới, bạn không cần thao tác gì thêm trong admin.
+- Lệnh tự kiểm tra điều kiện khai báo trong `gp247.json` (phiên bản core, gói composer, plugin phụ thuộc). Nếu thiếu, lệnh dừng lại và báo rõ thiếu gì (ví dụ website chưa có `gp247/shop`).
+- Nếu thư mục `app/GP247/Plugins/CashPayment` đã có sẵn trên máy (chép thủ công hoặc có sẵn theo bộ cài), lệnh sẽ **cài tại chỗ**, không tải lại.
+- Nếu plugin đã được cài, lệnh sẽ từ chối. Để lên bản mới, chạy `php artisan gp247:ext-update --type=plugin --key=CashPayment`.
+- Thêm `--json` vào cuối lệnh để nhận kết quả dạng máy đọc được (dùng cho script/CI).
+- Chi tiết: [Hướng dẫn cài đặt Plugin & Template](https://github.com/gp247net/gp247-docs/blob/main/extension/install-extension_vi.md) · [Tra cứu lệnh](https://github.com/gp247net/gp247-docs/blob/main/system/command-line-reference_vi.md).
+
 ### 4. Cách sử dụng
 - Vào trang quản trị: Plugins → Payment → bật "Cash payment".
 - Không yêu cầu cấu hình thêm cho phương thức này.
