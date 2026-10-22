@@ -1,3 +1,5 @@
+> 🌐 **Language:** [🇻🇳 Tiếng Việt](./readme_vi.md) · 🇬🇧 English (current) · [🇯🇵 日本語](./readme_ja.md)
+
 ### 1. Overview
 Cash payment plugin for GP247/Shop. Suitable for offline cash collection (e.g., cash on delivery). Orders are created successfully and payment is collected outside the system between buyer and seller.
 

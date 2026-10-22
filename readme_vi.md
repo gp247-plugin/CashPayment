@@ -1,3 +1,5 @@
+> 🌐 **Ngôn ngữ:** 🇻🇳 Tiếng Việt (hiện tại) · [🇬🇧 English](./readme.md) · [🇯🇵 日本語](./readme_ja.md)
+
 ### 1. Tổng quan
 Plugin thanh toán tiền mặt (Cash payment) dành cho GP247/Shop. Phù hợp cho mô hình thu tiền mặt khi giao hàng hoặc thanh toán ngoại tuyến; đơn hàng được tạo thành công và việc thanh toán diễn ra giữa người mua và người bán ngoài hệ thống.
 
