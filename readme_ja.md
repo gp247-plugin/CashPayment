@@ -36,7 +36,7 @@ php artisan gp247:ext-install --type=plugin --key=CashPayment
 - `app/GP247/Plugins/CashPayment` フォルダーがすでにサーバー上にある場合（手動でコピーした、またはインストールパッケージに同梱されていた場合）、コマンドは再ダウンロードせず**その場でインストール**します。
 - プラグインがすでにインストール済みの場合、コマンドは実行を拒否します。新しいバージョンに更新するには `php artisan gp247:ext-update --type=plugin --key=CashPayment` を実行します。
 - コマンドの末尾に `--json` を付けると、機械可読な形式で結果を受け取れます（スクリプト／CI 用）。
-- 詳細：[プラグイン＆テンプレートのインストールガイド](https://github.com/gp247net/gp247-docs/blob/main/extension/install-extension.md) · [コマンドリファレンス](https://github.com/gp247net/gp247-docs/blob/main/system/command-line-reference.md)。
+- 詳細：[プラグイン＆テンプレートのインストールガイド](https://github.com/gp247net/gp247-docs/blob/main/extension/install-extension.md) · [コマンドリファレンス](https://github.com/gp247net/gp247-docs/blob/main/cli/cli-extensions_ja.md)。
 
 ### 4. 使い方
 - 管理画面：Plugins → Payment で「Cash payment」を有効にします。

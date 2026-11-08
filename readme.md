@@ -36,7 +36,7 @@ php artisan gp247:ext-install --type=plugin --key=CashPayment
 - If the folder `app/GP247/Plugins/CashPayment` is already on the server (copied manually or shipped with the installer), the command **installs it in place** instead of downloading it again.
 - The command refuses a plugin that is already installed. To move to a newer version, run `php artisan gp247:ext-update --type=plugin --key=CashPayment`.
 - Append `--json` to get machine-readable output (for scripts/CI).
-- More: [Installing Plugins & Templates](https://github.com/gp247net/gp247-docs/blob/main/extension/install-extension.md) · [Command reference](https://github.com/gp247net/gp247-docs/blob/main/system/command-line-reference.md).
+- More: [Installing Plugins & Templates](https://github.com/gp247net/gp247-docs/blob/main/extension/install-extension.md) · [Command reference](https://github.com/gp247net/gp247-docs/blob/main/cli/cli-extensions.md).
 
 ### 4. Usage
 - In Admin: Plugins → Payment → enable "Cash payment".
