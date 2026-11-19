@@ -49,4 +49,4 @@ php artisan gp247:ext-install --type=plugin --key=CashPayment
 - Link hướng dẫn: `https://gp247.net/vi/docs/user-guide-extension/guide-to-installing-the-extension.html`
 
 ### 5. Giấy phép
-Được phát triển bởi GP247
+Được phát triển bởi GP247. Miễn phí, mã nguồn mở theo [giấy phép MIT](./LICENSE).

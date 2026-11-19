@@ -49,6 +49,6 @@ php artisan gp247:ext-install --type=plugin --key=CashPayment
 - Guide (Vietnamese): `https://gp247.net/vi/docs/user-guide-extension/guide-to-installing-the-extension.html`
 
 ### 5. License
-Developed by GP247
+Developed by GP247. Free and open source under the [MIT License](./LICENSE).
 
 

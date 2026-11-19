@@ -49,4 +49,4 @@ php artisan gp247:ext-install --type=plugin --key=CashPayment
 - ガイドリンク：`https://gp247.net/en/docs/user-guide-extension/guide-to-installing-the-extension.html`
 
 ### 5. ライセンス
-GP247 が開発しています。
+GP247 が開発しています。[MIT ライセンス](./LICENSE) に基づく、無料のオープンソースです。
